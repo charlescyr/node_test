@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 //création de l'application via express
 app.use(express.json())
 
-app.use('/api/book', bookRoutes);
+app.use('/api/books', bookRoutes);
 app.use('/api/auth', userRoutes);
 
 module.exports = app;
