@@ -12,6 +12,14 @@ const BookShema = mongoose.Schema({
     imageUrl: {type: String, required: true},
     year: {type: Number, required: true},
     genre: {type: String, required: true},
+    ratings: {
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+        grade: { type: Number, required: true },
+        default: [],
+    },
     averageRating : {type: Number, default: 0}
 });
 
