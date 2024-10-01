@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 
 const path = require('path');
 
-const bookRoutes = require('./routes/book');
-const userRoutes = require('./routes/user');
+const bookRoute = require('./routes/book');
+const userRoute = require('./routes/user');
+
+const app = express();
 
 // connexion à MongoDB
 mongoose.connect('mongodb+srv://Ennlco:ugytvNwMLG0zJRGW@ennlco.vyiqv.mongodb.net/?retryWrites=true&w=majority&appName=Ennlco',
@@ -25,9 +26,9 @@ app.use((req, res, next) => {
 //création de l'application via express
 app.use(express.json());
 
-// routes
-app.use('/api/books', bookRoutes);
-app.use('/api/auth', userRoutes);
+// utilisation des routes
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/stuff', bookRoute);
+app.use('/api/auth', userRoute);
 
 module.exports = app;
