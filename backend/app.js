@@ -28,7 +28,7 @@ app.use(express.json());
 
 // utilisation des routes
 app.use('/images', express.static(path.join(__dirname, 'images')));
-app.use('/api/stuff', bookRoute);
+app.use('/api/books', bookRoute);
 app.use('/api/auth', userRoute);
 
 module.exports = app;
